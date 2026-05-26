@@ -11,7 +11,7 @@ import zipfile
 from copy import deepcopy
 from pathlib import Path
 from urllib.request import Request, urlopen
-from urllib.parse import urljoin
+from urllib.parse import quote, urljoin
 
 from lxml import etree, html
 from PIL import Image, ImageDraw, ImageFont
@@ -56,7 +56,108 @@ LANGUAGE_CONFIGS = {
         "start_anchors": ("INTRODUCTION",),
         "top_level_pattern": r"^(INTRODUCTION|Chapitre\s+\d+|CONCLUSION)$",
     },
+    "de": {
+        "source_url": "https://www.vatican.va/content/leo-xiv/de/encyclicals/documents/20260515-magnifica-humanitas.html",
+        "source_html": Path("vatican-magnifica-humanitas.de.source.html"),
+        "build_dir": Path("build/magnifica-humanitas-epub-de"),
+        "output_epub": Path("Magnifica Humanitas - Papst Leo XIV (de).epub"),
+        "title": "Magnifica Humanitas",
+        "subtitle": "Über die Bewahrung des Menschen im Zeitalter der künstlichen Intelligenz",
+        "author": "Papst Leo XIV.",
+        "publisher": "Der Heilige Stuhl",
+        "date": "2026-05-15",
+        "cover_kicker": "ENZYKLIKA",
+        "cover_date": "15. MAI 2026",
+        "title_page_label": "ENZYKLIKA",
+        "title_page_nav": "Titelseite",
+        "contents_label": "Inhalt",
+        "notes_label": "Anmerkungen",
+        "start_anchors": ("Einleitung",),
+        "top_level_pattern": r"^(Einleitung|\w+ Kapitel|Schluss)$",
+    },
+    "es": {
+        "source_url": "https://www.vatican.va/content/leo-xiv/es/encyclicals/documents/20260515-magnifica-humanitas.html",
+        "source_html": Path("vatican-magnifica-humanitas.es.source.html"),
+        "build_dir": Path("build/magnifica-humanitas-epub-es"),
+        "output_epub": Path("Magnifica Humanitas - Papa León XIV (es).epub"),
+        "title": "Magnifica Humanitas",
+        "subtitle": "Sobre la custodia de la persona humana en el tiempo de la inteligencia artificial",
+        "author": "Papa León XIV",
+        "publisher": "La Santa Sede",
+        "date": "2026-05-15",
+        "cover_kicker": "CARTA ENCÍCLICA",
+        "cover_date": "15 DE MAYO DE 2026",
+        "title_page_label": "CARTA ENCÍCLICA",
+        "title_page_nav": "Portada",
+        "contents_label": "Índice",
+        "notes_label": "Notas",
+        "start_anchors": ("INTRODUCCION",),
+        "top_level_pattern": r"^(INTRODUCCIÓN|CAPÍTULO \w+|CONCLUSIÓN)$",
+    },
+    "it": {
+        "source_url": "https://www.vatican.va/content/leo-xiv/it/encyclicals/documents/20260515-magnifica-humanitas.html",
+        "source_html": Path("vatican-magnifica-humanitas.it.source.html"),
+        "build_dir": Path("build/magnifica-humanitas-epub-it"),
+        "output_epub": Path("Magnifica Humanitas - Papa Leone XIV (it).epub"),
+        "title": "Magnifica Humanitas",
+        "subtitle": "Sulla custodia della persona umana nel tempo dell’intelligenza artificiale",
+        "author": "Papa Leone XIV",
+        "publisher": "La Santa Sede",
+        "date": "2026-05-15",
+        "cover_kicker": "LETTERA ENCICLICA",
+        "cover_date": "15 MAGGIO 2026",
+        "title_page_label": "LETTERA ENCICLICA",
+        "title_page_nav": "Frontespizio",
+        "contents_label": "Indice",
+        "notes_label": "Note",
+        "start_anchors": ("INTRODUZIONE",),
+        "top_level_pattern": r"^(INTRODUZIONE|CAPITOLO \d+|CONCLUSIONE)$",
+    },
+    "pl": {
+        "source_url": "https://www.vatican.va/content/leo-xiv/pl/encyclicals/documents/20260515-magnifica-humanitas.html",
+        "source_html": Path("vatican-magnifica-humanitas.pl.source.html"),
+        "build_dir": Path("build/magnifica-humanitas-epub-pl"),
+        "output_epub": Path("Magnifica Humanitas - Papież Leon XIV (pl).epub"),
+        "title": "Magnifica Humanitas",
+        "subtitle": "O trosce o osobę ludzką w dobie sztucznej inteligencji",
+        "author": "Papież Leon XIV",
+        "publisher": "Stolica Apostolska",
+        "date": "2026-05-15",
+        "cover_kicker": "ENCYKLIKA",
+        "cover_date": "15 MAJA 2026",
+        "title_page_label": "ENCYKLIKA",
+        "title_page_nav": "Strona tytułowa",
+        "contents_label": "Spis treści",
+        "notes_label": "Przypisy",
+        "start_anchors": ("WPROWADZENIE_",),
+        "top_level_pattern": r"^(WPROWADZENIE|ROZDZIAŁ [IVX]+|ZAKOŃCZENIE)$",
+    },
+    "pt": {
+        "source_url": "https://www.vatican.va/content/leo-xiv/pt/encyclicals/documents/20260515-magnifica-humanitas.html",
+        "source_html": Path("vatican-magnifica-humanitas.pt.source.html"),
+        "build_dir": Path("build/magnifica-humanitas-epub-pt"),
+        "output_epub": Path("Magnifica Humanitas - Papa Leão XIV (pt).epub"),
+        "title": "Magnifica Humanitas",
+        "subtitle": "Sobre a salvaguarda da pessoa humana na era da inteligência artificial",
+        "author": "Papa Leão XIV",
+        "publisher": "A Santa Sé",
+        "date": "2026-05-15",
+        "cover_kicker": "CARTA ENCÍCLICA",
+        "cover_date": "15 DE MAIO DE 2026",
+        "title_page_label": "CARTA ENCÍCLICA",
+        "title_page_nav": "Página de título",
+        "contents_label": "Índice",
+        "notes_label": "Notas",
+        "start_anchors": ("Introdução",),
+        "top_level_pattern": r"^(INTRODUÇÃO|CAPÍTULO [IVX]+|CONCLUSÃO)$",
+    },
 }
+
+FOOTNOTE_PREDICATE = (
+    'contains(concat(" ", normalize-space(@class), " "), " MsoFootnoteText ")'
+    ' or .//a[starts-with(@name, "_ftn") and not(starts-with(@name, "_ftnref"))]'
+    ' or .//a[contains(@href, "_ftnref")]'
+)
 
 SOURCE_URL = ""
 SOURCE_HTML = Path()
@@ -219,7 +320,8 @@ def sanitize_element(element: etree._Element, id_map: dict[str, str]) -> etree._
             if href.startswith("#"):
                 node.set("href", f"#{id_map.get(href[1:], href[1:])}")
             else:
-                node.set("href", urljoin(SOURCE_URL, href).replace("http://www.vatican.va", "https://www.vatican.va"))
+                absolute = urljoin(SOURCE_URL, href).replace("http://www.vatican.va", "https://www.vatican.va")
+                node.set("href", quote(absolute, safe="%/:?#[]@!$&'()*+,;=~"))
 
         if text_align_center and node.tag in {"p", "div"}:
             node.set("class", "center")
@@ -281,15 +383,18 @@ def build_content_fragments(content: etree._Element, id_map: dict[str, str], toc
             continue
 
         footnote_paragraphs = []
-        if child.tag.lower() == "p" and child.xpath('.//a[starts-with(@name, "_ftn") and not(starts-with(@name, "_ftnref"))]'):
+        if child.tag.lower() == "p" and child.xpath(f"self::p[{FOOTNOTE_PREDICATE}]"):
             footnote_paragraphs.append(child)
-        footnote_paragraphs.extend(
-            child.xpath('.//p[contains(concat(" ", normalize-space(@class), " "), " MsoFootnoteText ") or .//a[starts-with(@name, "_ftn") and not(starts-with(@name, "_ftnref"))]]')
-        )
+        footnote_paragraphs.extend(child.xpath(f".//p[{FOOTNOTE_PREDICATE}]"))
         if footnote_paragraphs:
             for paragraph in footnote_paragraphs:
                 cleaned = sanitize_element(paragraph, id_map)
                 cleaned.set("class", "footnote")
+                if not cleaned.xpath(".//*[@id] | self::*[@id]"):
+                    backref = paragraph.xpath('.//a[contains(@href, "_ftnref")]/@href')
+                    match = re.search(r"_ftnref(\w+)", backref[0]) if backref else None
+                    if match:
+                        cleaned.set("id", f"_ftn{match.group(1)}")
                 if normspace(cleaned.text_content()):
                     notes.append(serialize_element(cleaned))
             continue
@@ -320,6 +425,8 @@ def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.Im
         "/System/Library/Fonts/Supplemental/Georgia Bold.ttf" if bold else "/System/Library/Fonts/Supplemental/Georgia.ttf",
         "/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf" if bold else "/System/Library/Fonts/Supplemental/Times New Roman.ttf",
         "/System/Library/Fonts/Supplemental/Arial Bold.ttf" if bold else "/System/Library/Fonts/Supplemental/Arial.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf" if bold else "/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
     ]
     for candidate in candidates:
         path = Path(candidate)
