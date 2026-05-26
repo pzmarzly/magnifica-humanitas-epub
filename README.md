@@ -2,16 +2,6 @@
 
 Clean EPUB versions of Pope Leo XIV's *Magnifica Humanitas*, generated from the Holy See's HTML source.
 
-Sources:
-
-- English: https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html
-- French: https://www.vatican.va/content/leo-xiv/fr/encyclicals/documents/20260515-magnifica-humanitas.html
-- German: https://www.vatican.va/content/leo-xiv/de/encyclicals/documents/20260515-magnifica-humanitas.html
-- Spanish: https://www.vatican.va/content/leo-xiv/es/encyclicals/documents/20260515-magnifica-humanitas.html
-- Italian: https://www.vatican.va/content/leo-xiv/it/encyclicals/documents/20260515-magnifica-humanitas.html
-- Polish: https://www.vatican.va/content/leo-xiv/pl/encyclicals/documents/20260515-magnifica-humanitas.html
-- Portuguese: https://www.vatican.va/content/leo-xiv/pt/encyclicals/documents/20260515-magnifica-humanitas.html
-
 The EPUBs include:
 
 - cover image
@@ -28,15 +18,17 @@ them via the [Build EPUB](https://github.com/pzmarzly/magnifica-humanitas-epub/a
 GitHub Actions workflow, which publishes them to the rolling
 [`latest` release](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest).
 
-Direct download links (always the newest build):
+Each language is built from the Holy See's HTML source; the EPUB links always point to the newest build:
 
-- [English](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Pope%20Leo%20XIV.epub)
-- [French](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Pape%20Leon%20XIV%20(fr).epub)
-- [German](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papst%20Leo%20XIV%20(de).epub)
-- [Spanish](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papa%20Le%C3%B3n%20XIV%20(es).epub)
-- [Italian](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papa%20Leone%20XIV%20(it).epub)
-- [Polish](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papie%C5%BC%20Leon%20XIV%20(pl).epub)
-- [Portuguese](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papa%20Le%C3%A3o%20XIV%20(pt).epub)
+| Language | Source | Result |
+| --- | --- | --- |
+| English | [HTML](https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html) | [EPUB](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Pope%20Leo%20XIV.epub) |
+| French | [HTML](https://www.vatican.va/content/leo-xiv/fr/encyclicals/documents/20260515-magnifica-humanitas.html) | [EPUB](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Pape%20Leon%20XIV%20(fr).epub) |
+| German | [HTML](https://www.vatican.va/content/leo-xiv/de/encyclicals/documents/20260515-magnifica-humanitas.html) | [EPUB](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papst%20Leo%20XIV%20(de).epub) |
+| Spanish | [HTML](https://www.vatican.va/content/leo-xiv/es/encyclicals/documents/20260515-magnifica-humanitas.html) | [EPUB](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papa%20Le%C3%B3n%20XIV%20(es).epub) |
+| Italian | [HTML](https://www.vatican.va/content/leo-xiv/it/encyclicals/documents/20260515-magnifica-humanitas.html) | [EPUB](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papa%20Leone%20XIV%20(it).epub) |
+| Polish | [HTML](https://www.vatican.va/content/leo-xiv/pl/encyclicals/documents/20260515-magnifica-humanitas.html) | [EPUB](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papie%C5%BC%20Leon%20XIV%20(pl).epub) |
+| Portuguese | [HTML](https://www.vatican.va/content/leo-xiv/pt/encyclicals/documents/20260515-magnifica-humanitas.html) | [EPUB](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papa%20Le%C3%A3o%20XIV%20(pt).epub) |
 
 ## Build
 
