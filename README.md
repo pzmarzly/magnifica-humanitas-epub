@@ -21,6 +21,27 @@ The EPUBs include:
 
 It validates with `epubcheck` 5.3.0 with no errors or warnings.
 
+## Download
+
+The EPUBs are not committed to this repository. They are built on every push
+by the [Build EPUB](../../actions/workflows/build.yml) GitHub Actions workflow
+and published as build artifacts.
+
+To fetch them:
+
+1. Open the [Build EPUB workflow runs](../../actions/workflows/build.yml).
+2. Click the most recent successful run.
+3. Download the `magnifica-humanitas-en` and/or `magnifica-humanitas-fr`
+   artifacts from the **Artifacts** section at the bottom of the run summary.
+
+With the [GitHub CLI](https://cli.github.com/) you can download them directly:
+
+```sh
+gh run download --repo pzmarzly/magnifica-humanitas-epub \
+  --name magnifica-humanitas-en \
+  --name magnifica-humanitas-fr
+```
+
 ## Build
 
 ```sh
