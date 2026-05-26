@@ -13,13 +13,6 @@ It validates with `epubcheck` 5.3.0 with no errors or warnings.
 
 ## Download
 
-The EPUBs are not committed to this repository. Every push to `main` rebuilds
-them via the [Build EPUB](https://github.com/pzmarzly/magnifica-humanitas-epub/actions/workflows/build.yml)
-GitHub Actions workflow, which publishes them to the rolling
-[`latest` release](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/tag/latest).
-
-Each language is built from the Holy See's HTML source; the EPUB links always point to the newest build:
-
 | Language | Source | Result |
 | --- | --- | --- |
 | English | [HTML](https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html) | [EPUB](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/download/latest/Magnifica.Humanitas.-.Pope.Leo.XIV.epub) |
