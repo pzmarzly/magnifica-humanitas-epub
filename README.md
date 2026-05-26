@@ -30,13 +30,13 @@ GitHub Actions workflow, which publishes them to the rolling
 
 Direct download links (always the newest build):
 
-- English: https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Pope%20Leo%20XIV.epub
-- French: https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Pape%20Leon%20XIV%20(fr).epub
-- German: https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papst%20Leo%20XIV%20(de).epub
-- Spanish: https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papa%20Le%C3%B3n%20XIV%20(es).epub
-- Italian: https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papa%20Leone%20XIV%20(it).epub
-- Polish: https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papie%C5%BC%20Leon%20XIV%20(pl).epub
-- Portuguese: https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papa%20Le%C3%A3o%20XIV%20(pt).epub
+- [English](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Pope%20Leo%20XIV.epub)
+- [French](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Pape%20Leon%20XIV%20(fr).epub)
+- [German](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papst%20Leo%20XIV%20(de).epub)
+- [Spanish](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papa%20Le%C3%B3n%20XIV%20(es).epub)
+- [Italian](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papa%20Leone%20XIV%20(it).epub)
+- [Polish](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papie%C5%BC%20Leon%20XIV%20(pl).epub)
+- [Portuguese](https://github.com/pzmarzly/magnifica-humanitas-epub/releases/latest/download/Magnifica%20Humanitas%20-%20Papa%20Le%C3%A3o%20XIV%20(pt).epub)
 
 ## Build
 
